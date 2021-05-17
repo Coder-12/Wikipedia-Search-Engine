@@ -6,8 +6,7 @@ from text_processing import *
 from nltk.stem import PorterStemmer
 from collections import defaultdict
 
-Title_File="Title.txt"
-Title_File_Name=open(Title_File,'a')
+Title_File_Name=open(sys.argv[0],'a')
 
 # Define Sax parser Class
 class Parser_Module(ContentHandler):
@@ -65,7 +64,7 @@ class Parser_Module(ContentHandler):
 print("processing...")
 start=time.time()
 parse_handle=Parser_Module()
-for i in range(1,35,1):
+for i in range(1,sys.argv[1]):
      parse("wiki"+str(i)+".xml",parse_handle)
      #print("Parsing completed and Store parse info....\n")
      write_index_File("./Data/index_"+str(var)+".txt")
